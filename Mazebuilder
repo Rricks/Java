@@ -1,0 +1,52 @@
+package pt.iul.ista.poo.rogue.utils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import pt.iul.ista.poo.example.Floor;
+import pt.iul.ista.poo.gui.ImageTile;
+
+public class MazeBuilder {
+	public List<ImageTile> tiles;
+	
+	public void build() {
+		List<ImageTile> tiles = new ArrayList<ImageTile>();
+		for (int i = 0; i != 10; i++)
+			for (int j = 0; j != 10; j++) {
+				char[] a = TxtReader.getChar();
+			}
+	}
+	
+	public static char[] getChar() {
+		Scanner canalDeLeitura;
+		char[] mapa = new char[10];
+		
+		try {
+			canalDeLeitura = new Scanner(new File("room2.txt"));
+
+			while (canalDeLeitura.hasNextLine()) {
+				// TODO Transformar o String Em array de caracters
+				String linha = canalDeLeitura.nextLine();
+				for (int k = 0; k != 10; k++) {
+					char a = linha.charAt(k);
+					mapa[k]= a;
+					String str = String.valueOf(mapa[k]);
+					FloorTileChooser.ImageChoose(str);
+					
+					
+				}
+			}
+		}
+		catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return mapa; 
+
+	
+}
+
+}
